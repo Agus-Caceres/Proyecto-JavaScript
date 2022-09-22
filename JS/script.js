@@ -71,16 +71,58 @@ let brand = prompt ("Indique la marca de su auto:")
                 
 
 
-
-
-
 let year = prompt ("Indique el año de su auto:")
 const añoActual = 2022
+if(year!=""){
 let diferencia = añoActual - year
-let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100
+let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100 /*CUANTO ES LO QUE SE AUMENTA (CALCULANDO EL 3% DE LA DIFERENCIA EN RELACION AL PRECIO PARCIAL)*/
 precioParcial = precioParcial + calculoDiferenciaPorAño
+}
+else{
+    alert("Indique un año válido")
+}
 alert ("Su precio parcial es:" + " " + "$" + precioParcial)
 
-
+/*AUMENTOS POR TIPO DE SEGURO
+Responsabilidad Civil: Aumenta un 30%
+Terceros completos aumenta un 50%
+Todo Riesgo: Aumenta un 62%
+*/
+let precioTotal
 let type = prompt ("Indique el seguro que desea: \n - Resposabilidad Civil\n - Terceros Completos\n - Todo Riesgo")
+
+/*function precioDelSeguro(constantePorTipo){*/
+    switch(constantePorTipo){
+        case "0.3":
+            if (type == "Resposabilidad Civil" || type == "RESPONSABILIDAD CIVIL" || type == "Resposabilidad Civil"){
+             precioTotal = precioParcial * constantePorTipo;
+            }
+            alert("El costo total es:" + precioTotal);
+            break;
+        case "0.5":
+            if (type == "Terceros Completos" || type == "TERCEROS COMPLETOS" || type == "terceros completos"){
+             precioTotal =  precioParcial * constantePorTipo;
+            }
+            alert("El costo total es:" + precioTotal);
+            break;
+        case "0.62":
+            if (type == "Todo Riesgo" || type == "TODO RIESGO" || type == "todo riesgo"){
+             precioTotal = precioParcial * constantePorTipo;
+            }
+            alert("El costo total es:" + precioTotal);
+            break;
+        default:
+            alert("Ingrese un tipo de seguro válido")
+        
+    }
+/*}*/
+
+   precioDelSeguro()
+ 
+
+
+
+
+
+
 let respuesta = alert ("Los datos ingresados son:" + "\n" + brand +"\n" + year + "\n" + type) 
