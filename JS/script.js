@@ -1,23 +1,81 @@
 
 /*SIMULADOR DE COTIZACIONES DE SEGUROS DE AUTO*/
+function Cotizaciones (seleccioneMarca, precioPorYear, precioPorTipo) {
+    this.brand = seleccioneMarca;
+    this.year = precioPorYear;
+    this.type = precioPorTipo;
+}
 
+
+/*FUNCION PARA MULTIPLICAR */
 function multiplicacion(a, b){
     return a * b
 }
 
-const seguroBase = 2000
-
-const respCivil = 2000
-const tercerosCompletos = 2200
-const todoRiesgo = 2500
 
 /*AUMENOS SEGUN MARCAS DE AUTO*/
-let toyota = 1.5
-let volkswagen = 1.2
-let ford = 1.05
-let chevrolet = 1.15
-let renault = 1.08
-let audi = 2
+/*OBJETOS DE LAS MARCAS DE AUTO*/
+/*let marcasDeAuto = {
+    toyota: 1.5,
+    volkswagen: 1.2,
+    ford: 1.05,
+    chevrolet: 1.15,
+    renault: 1.08,
+    audi: 2  
+}*/
+ /*MODIFIQUE E HICE UN OBJHETO CONSTRUCTOR DE CADA MARCA (AUN NO LOGRE QUE SE GENERE EL ID) */
+const idGenerator = () => Math.random()
+
+
+function Cars (id, brands, costoBase){
+    this.id = id
+    this.brands = brands
+    this.costoBase = costoBase
+}
+
+let marcaToyota = new Cars(idGenerator, "Toyota", 1.5)
+let marcaVolkswagen = new Cars(idGenerator, "Volkswagen", 1.2)
+let marcaFord = new Cars(idGenerator, "Ford", 1.05)
+let marcaChevrolet = new Cars(idGenerator, "Chevrolet", 1.15)
+let marcaRenault = new Cars(idGenerator, "Renault", 1.08)
+let marcaAudi = new Cars(idGenerator, "Audi", 2)
+
+
+/*HACEMOS UN ARRAY CON SOLO EL NOMBRE DE LAS MARCAS */
+const arrayMarcas = [marcaToyota, marcaVolkswagen, marcaFord, marcaChevrolet, marcaRenault, marcaAudi]
+const listaMarcas = []
+
+for (nombreMarca of arrayMarcas) {
+    listaMarcas.push(nombreMarca.brands)
+}
+console.log(listaMarcas.join(", "))
+
+/*PRUEBA DE INCLUDES() */
+const filtradoMarcas = listaMarcas.filter((searchBrands) => searchBrands.includes("T"))
+console.log(filtradoMarcas)
+
+/*MAP CON AUMENTO DE PRECIOS*/
+const brandPrice = arrayMarcas.map((el) => el.costoBase*1.2) 
+console.log(brandPrice)
+
+
+
+const seguroBase = 2000
+
+
+
+
+
+
+/*let seleccionTipoDeSeguro = {
+    respCivil: 2000,
+    tercerosCompletos: 2000,
+    todoRiesgo: 2500
+}
+const respCivil = 2000
+const tercerosCompletos = 2200
+const todoRiesgo = 2500*/
+
  
 let precioParcial = 0
     
@@ -30,39 +88,65 @@ let precioParcial = 0
         break
 }*/
 
+
+
+/*DATOS PERSONALES*/
+const datosPersonales = []
+let nombre = prompt("Ingrese su Nombre y Apellido:")
+let dni = prompt("Ingrese su numero de documento:")
+let fechaNac = prompt("Ingrese su año de nacimiento:")
+datosPersonales.push(nombre.toUpperCase())
+datosPersonales.push(dni.toUpperCase())
+datosPersonales.push(fechaNac.toUpperCase())
+datosPersonales.join("\n")
+datosPersonales.forEach ((data) =>{console.log (data)})
+
+
+/*const clientNames = datosPersonales.filter((cliente) => cliente.nombre.includes("A"))
+console.log(clientNames)*/
+
+
+
+
+
+function precioSegunMarca(base, marca){
+    precioParcial = multiplicacion(base, marca)
+}
+
 function seleccioneMarca (){
     let brand = prompt ("Indique la marca de su auto:")
-            if(brand == "Toyota" || brand == "TOYOTA" || brand == "toyota"){
-                precioParcial = multiplicacion(seguroBase, toyota)
+            if(brand.toUpperCase() == "TOYOTA"){
+                precioSegunMarca(seguroBase, brandPrice[0]) /*REEMPLAZO DE: "marcaToyota.costoBase" - PARA REFLEJAR EL AUMENTO DE COSTO CON EL MAP(*/
                 /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
-               
                 }
 
-            else if(brand == "Volkswagen" || brand == "VOLKSWAGEN" || brand == "volkswagen"){
-                precioParcial = multiplicacion(seguroBase, volkswagen)
+            else if(brand.toUpperCase() ==  "VOLKSWAGEN"){
+                precioSegunMarca(seguroBase, marcaVolkswagen.costoBase)
+                /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.volkswagen)*/
                 /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
-             
                 }
 
-             else if(brand.toUpperCase == "Ford" || brand == "FORD" || brand == "ford"){
-                precioParcial = multiplicacion(seguroBase, ford)
+             else if(brand.toUpperCase() == "FORD"){
+                precioSegunMarca(seguroBase, marcaFord.costoBase)
+                /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.ford)*/
                 /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
-        
                 }
 
-            else if(brand.toUpperCase == "Chevrolet" || brand == "CHEVROLET" || brand == "chevrolet"){
+            else if(brand.toUpperCase() == "CHEVROLET"){
+                precioSegunMarca(seguroBase, marcaChevrolet.costoBase)
+                /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.chevrolet)*/
                 /*precioParcial = multiplicacion(seguroBase, chevrolet)*/
-                
                 }
 
-            else if(brand.toUpperCase == "Renault" || brand == "RENAULT" || brand == "renault"){
-                precioParcial = multiplicacion(seguroBase, renault)
+            else if(brand.toUpperCase() == "RENAULT"){
+                precioSegunMarca(seguroBase, marcaRenault.costoBase)
+                /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.renault)*/
                 /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
-              
                 }
 
-            else if(brand.toUpperCase == "Audi" || brand == "AUDI" || brand == "AUDI"){
-                precioParcial = multiplicacion(seguroBase, audi)
+            else if(brand.toUpperCase() == "AUDI"){
+                precioSegunMarca(seguroBase, marcaAudi.costoBase)
+                /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.audi)*/
                 /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
@@ -76,9 +160,11 @@ function seleccioneMarca (){
                 
 /*CALCULO DE PRECIO DE ACUERDO AL AÑO DEL AUTO */
 let precioParcial2
+
 function precioPorYear(){
 let year = prompt ("Indique el año de su auto:")
 const añoActual = 2022
+
 if(year!=""){
 let diferencia = añoActual - year
 let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100 /*CUANTO ES LO QUE SE AUMENTA (CALCULANDO EL 3% DE LA DIFERENCIA EN RELACION AL PRECIO PARCIAL)*/
@@ -89,7 +175,6 @@ else{
     alert("Indique un año válido")
 
 }
-
 }
 precioPorYear()
 
@@ -101,29 +186,54 @@ Terceros completos aumenta un 50%
 Todo Riesgo: Aumenta un 62%
 */
 let precioTotal
-const constanteRC = 0.3
-const constanteTC = 0.5
-const constanteTR = 0.6
 
+/*OBJETO DE LOS TIPOS DE SEGUROS*/
+
+/*FUNCION CONSTRUCTORA DE LOS TIPOS DE SEGURO */
+function Type(tipo, costoPorTipo, _nombre){
+    this.tipo = tipo;
+    this.costoPorTipo = costoPorTipo;
+    this._nombre = _nombre
+}
+
+let respCivil = new Type(1, 0.3, "1- Responsabilidad Civil")
+let tercerosCompletos = new Type(2, 0.5, "2- Terceros Completos")
+let todoRiesgo = new Type(3, 0.6, "3- Todo Riesgo")
+
+const productosSeguro = [respCivil, tercerosCompletos, todoRiesgo] 
+
+let listaNombreProducto = []
+
+for (const productoSeguro of productosSeguro){
+    listaNombreProducto.push(productoSeguro._nombre)
+}
+console.log(listaNombreProducto)
+
+/*let tipoDeSeguro = {
+    respCivil: 0.3,
+    tercerosCompletos: 0.5,
+    todoRiesgo: 0.6
+}*/
+/*\n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo*/
 
 function precioPorTipo(){
-    let type = prompt ("Indique el seguro que desea: \n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo")
+    let type = prompt ("Indique el seguro que desea:\n" +  listaNombreProducto.join("\n"))
     switch(type){
         case "1":
-            if (type == 1){
-             precioType = precioParcial2 * constanteRC;
+            if (type == respCivil.tipo){
+             precioType = precioParcial2 * respCivil.costoPorTipo;
             }
             /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
         case "2":
-            if (type == 2){
-             precioType =  precioParcial2 * constanteTC;
+            if (type == tercerosCompletos.tipo){
+             precioType =  precioParcial2 * tercerosCompletos.costoPorTipo;
             }
             /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
         case "3":
-            if (type == 3){
-             precioType = precioParcial2 * constanteTR;
+            if (type == todoRiesgo.tipo){
+             precioType = precioParcial2 * todoRiesgo.costoPorTipo;
             }
             /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
@@ -134,6 +244,8 @@ function precioPorTipo(){
 }
 
 precioPorTipo()
+
+/*CALCULO DEL COSTO TOTAL DEL SEGURO*/
 function costoTotal (){
 precioTotal = precioType + precioParcial2
 alert("El costo total es:" + " " + "$" +precioTotal)
@@ -160,7 +272,9 @@ alert("Gracias por tu visita!")
 
     
 
-
+/*NO ENCONTRE NINGUNA FUNCIONALIDAD PARA EL FIND() AUN.
+ 
+*/
 
 
 /*let respuesta = alert ("Los datos ingresados son:" + "\n" + brand +"\n" + year + "\n" + type)*/
