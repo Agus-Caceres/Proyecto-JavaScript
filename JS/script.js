@@ -12,6 +12,8 @@ function multiplicacion(a, b){
     return a * b
 }
 
+const seguroBase = 2000
+
 
 /*AUMENOS SEGUN MARCAS DE AUTO*/
 /*OBJETOS DE LAS MARCAS DE AUTO*/
@@ -23,9 +25,10 @@ function multiplicacion(a, b){
     renault: 1.08,
     audi: 2  
 }*/
- /*MODIFIQUE E HICE UN OBJHETO CONSTRUCTOR DE CADA MARCA (AUN NO LOGRE QUE SE GENERE EL ID) */
-const idGenerator = () => Math.random()
+ /*MODIFIQUE E HICE UN OBJETO CONSTRUCTOR DE CADA MARCA */
 
+ const idGenerator = () => {
+    return Math.round(Math.random() * 100)}
 
 function Cars (id, brands, costoBase){
     this.id = id
@@ -33,12 +36,12 @@ function Cars (id, brands, costoBase){
     this.costoBase = costoBase
 }
 
-let marcaToyota = new Cars(idGenerator, "Toyota", 1.5)
-let marcaVolkswagen = new Cars(idGenerator, "Volkswagen", 1.2)
-let marcaFord = new Cars(idGenerator, "Ford", 1.05)
-let marcaChevrolet = new Cars(idGenerator, "Chevrolet", 1.15)
-let marcaRenault = new Cars(idGenerator, "Renault", 1.08)
-let marcaAudi = new Cars(idGenerator, "Audi", 2)
+let marcaToyota = new Cars(idGenerator(), "Toyota", 1.5)
+let marcaVolkswagen = new Cars(idGenerator(), "Volkswagen", 1.2)
+let marcaFord = new Cars(idGenerator(), "Ford", 1.05)
+let marcaChevrolet = new Cars(idGenerator(), "Chevrolet", 1.15)
+let marcaRenault = new Cars(idGenerator(), "Renault", 1.08)
+let marcaAudi = new Cars(idGenerator(), "Audi", 2)
 
 
 /*HACEMOS UN ARRAY CON SOLO EL NOMBRE DE LAS MARCAS */
@@ -54,16 +57,16 @@ console.log(listaMarcas.join(", "))
 const filtradoMarcas = listaMarcas.filter((searchBrands) => searchBrands.includes("T"))
 console.log(filtradoMarcas)
 
+/*const filtradoNombre = arrayMarcas.filter((searchBrands) => searchBrands.costoBase > 1.2)
+console.log(filtradoNombre)*/
+
 /*MAP CON AUMENTO DE PRECIOS*/
 const brandPrice = arrayMarcas.map((el) => el.costoBase*1.2) 
 console.log(brandPrice)
 
-
-
-const seguroBase = 2000
-
-
-
+/*MAP PARA VER LOS ID GENERADOS (PRUEBA) */
+let idMarcas = arrayMarcas.map((prod) => prod.id)
+/*console.log(idMarcas)*/
 
 
 
@@ -247,8 +250,8 @@ precioPorTipo()
 
 /*CALCULO DEL COSTO TOTAL DEL SEGURO*/
 function costoTotal (){
-precioTotal = precioType + precioParcial2
-alert("El costo total es:" + " " + "$" +precioTotal)
+precioTotal = Math.round(precioType + precioParcial2)
+alert("El costo total es:" + " " + "$" + precioTotal)
 }
 costoTotal()
 
