@@ -82,16 +82,6 @@ const todoRiesgo = 2500*/
  
 let precioParcial = 0
     
-/*switch(brand){
-    case "toyota":
-        return precioParcial = multiplicacion(seguroBase, toyota)
-    
-
-        alert ("Su precio parcial es:" + " " + "$"+ precioParcial)
-        break
-}*/
-
-
 
 /*DATOS PERSONALES*/
 const datosPersonales = []
@@ -109,9 +99,6 @@ datosPersonales.forEach ((data) =>{console.log (data)})
 console.log(clientNames)*/
 
 
-
-
-
 function precioSegunMarca(base, marca){
     precioParcial = multiplicacion(base, marca)
 }
@@ -120,19 +107,16 @@ function seleccioneMarca (){
     let brand = prompt ("Indique la marca de su auto:")
             if(brand.toUpperCase() == "TOYOTA"){
                 precioSegunMarca(seguroBase, brandPrice[0]) /*REEMPLAZO DE: "marcaToyota.costoBase" - PARA REFLEJAR EL AUMENTO DE COSTO CON EL MAP(*/
-                /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
             else if(brand.toUpperCase() ==  "VOLKSWAGEN"){
                 precioSegunMarca(seguroBase, marcaVolkswagen.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.volkswagen)*/
-                /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
              else if(brand.toUpperCase() == "FORD"){
                 precioSegunMarca(seguroBase, marcaFord.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.ford)*/
-                /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
             else if(brand.toUpperCase() == "CHEVROLET"){
@@ -144,13 +128,11 @@ function seleccioneMarca (){
             else if(brand.toUpperCase() == "RENAULT"){
                 precioSegunMarca(seguroBase, marcaRenault.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.renault)*/
-                /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
             else if(brand.toUpperCase() == "AUDI"){
                 precioSegunMarca(seguroBase, marcaAudi.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.audi)*/
-                /*alert ("Su precio parcial es:" + " " + "$"+ precioParcial)*/
                 }
 
             else {
@@ -217,8 +199,8 @@ console.log(listaNombreProducto)
     tercerosCompletos: 0.5,
     todoRiesgo: 0.6
 }*/
-/*\n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo*/
 
+/*\n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo*/
 function precioPorTipo(){
     let type = prompt ("Indique el seguro que desea:\n" +  listaNombreProducto.join("\n"))
     switch(type){
@@ -226,19 +208,16 @@ function precioPorTipo(){
             if (type == respCivil.tipo){
              precioType = precioParcial2 * respCivil.costoPorTipo;
             }
-            /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
         case "2":
             if (type == tercerosCompletos.tipo){
              precioType =  precioParcial2 * tercerosCompletos.costoPorTipo;
             }
-            /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
         case "3":
             if (type == todoRiesgo.tipo){
              precioType = precioParcial2 * todoRiesgo.costoPorTipo;
             }
-            /*alert("Se le adicionará:" + " " + "$" + precioType + " " + "por este tipo de seguro");*/
             break;
         default:
             alert("Ingrese un tipo de seguro válido")
