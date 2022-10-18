@@ -11,17 +11,43 @@ background-size: cover;
     width: 100%;
     padding: 15px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.estilosColor{
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    padding: 15px;
+#costoDelSeguro{
+    margin-bottom: 5%;
+    margin: 20px;
     text-align: center;
-    background-color: aquamarine!important;
+    border: 1px solid black;
 }
-    
+
+#gracias{
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #00838F;
+    font-weight: bolder;
+}
+
+#resumenDatos{
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    color:black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#costoSeguro{
+    background-color:#26C6DA;
+    padding: 15px;
+    font-size: 22px;
+    display: inline;
+    color: white;
+    font-weight: 600;
+}
+
 
 
 header {

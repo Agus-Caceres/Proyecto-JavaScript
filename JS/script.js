@@ -85,14 +85,28 @@ let precioParcial = 0
 
 /*DATOS PERSONALES*/
 const datosPersonales = []
-let nombre = prompt("Ingrese su Nombre y Apellido:")
-let dni = prompt("Ingrese su numero de documento:")
-let fechaNac = prompt("Ingrese su año de nacimiento:")
+
+let inputName = document.getElementById("name")
+let nombre = " "
+inputName.addEventListener('change', ()=>{nombre = inputName.value})
+
+let inputDni = document.getElementById("dni")
+let dni = " "
+inputDni.addEventListener('change', ()=>{dni = inputDni.value})
+
+let inputBday = document.getElementById("bday")
+let fechaNac = " "
+inputBday.addEventListener('change', ()=>{fechaNac = inputBday.value})
+
 datosPersonales.push(nombre.toUpperCase())
 datosPersonales.push(dni.toUpperCase())
 datosPersonales.push(fechaNac.toUpperCase())
 datosPersonales.join("\n")
 datosPersonales.forEach ((data) =>{console.log (data)})
+
+function mostrarPorConsola(nombre){
+    console.log("Bienvenido" + nombre)
+}
 
 
 /*const clientNames = datosPersonales.filter((cliente) => cliente.nombre.includes("A"))
@@ -238,17 +252,32 @@ function estiloBoton(){
 
 boton.addEventListener("click", costoTotal)
 
+
 function costoTotal (){
 precioTotal = Math.round(precioType + precioParcial2)
 /*alert("El costo total es:" + " " + "$" + precioTotal)*/
 document.getElementById("costoDelSeguro")
-costoDelSeguro.innerText = "El costo total es:" + " " + "$" + precioTotal
+costoDelSeguro.innerText = "El costo del seguro es:" + " " + "$" + precioTotal
+
+costoDelSeguro.innerHTML = `
+<p id="resumenDatos">Datos Ingresados:</p>
+<p>Nombre: ${nombre}</p>
+<p>DNI: ${dni}</p>
+<p>Año de Nacimiento: ${fechaNac}</p>
+<br>
+<p id="costoSeguro">El costo total es: $ ${precioTotal}</p>`;
+
+let gracias = document.getElementById("gracias")
+gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
 }
 
 
 
 
-let continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2-Salir ")
+
+
+
+/*let continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2-Salir ")
 
 while(continuar == 1){
         seleccioneMarca()
@@ -256,12 +285,11 @@ while(continuar == 1){
         precioPorTipo()
         costoTotal()
         continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2- Salir ")
-}
+}*/
 
 
-/*alert("Gracias por tu visita!")*/
-let gracias = document.getElementById("gracias")
-gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
+
+
 
 
 
@@ -271,3 +299,7 @@ console.log(tituloCotizador)*/
 
 /*let respuesta = alert ("Los datos ingresados son:" + "\n" + brand +"\n" + year + "\n" + type)*/
 /*`` */
+
+//INTERACCION DEL USUARIO CON EL FORMULARO
+
+
