@@ -14,7 +14,7 @@ function multiplicacion(a, b){
 
 const seguroBase = 2000
 
-
+ 
 /*AUMENOS SEGUN MARCAS DE AUTO*/
 /*OBJETOS DE LAS MARCAS DE AUTO*/
 /*let marcasDeAuto = {
@@ -228,14 +228,25 @@ function precioPorTipo(){
 precioPorTipo()
 
 /*CALCULO DEL COSTO TOTAL DEL SEGURO*/
+
+let boton = document.getElementById("botonCotizar")
+
+/*boton.addEventListener("onmousemove", estiloBoton)
+function estiloBoton(){
+    boton.style.backgroundColor = "red";
+}*/
+
+boton.addEventListener("click", costoTotal)
+
 function costoTotal (){
 precioTotal = Math.round(precioType + precioParcial2)
-alert("El costo total es:" + " " + "$" + precioTotal)
+/*alert("El costo total es:" + " " + "$" + precioTotal)*/
+document.getElementById("costoDelSeguro")
+costoDelSeguro.innerText = "El costo total es:" + " " + "$" + precioTotal
 }
-costoTotal()
 
 
-   
+
 
 let continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2-Salir ")
 
@@ -247,16 +258,16 @@ while(continuar == 1){
         continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2- Salir ")
 }
 
-alert("Gracias por tu visita!")
 
+/*alert("Gracias por tu visita!")*/
+let gracias = document.getElementById("gracias")
+gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
 
 
 
     
-
-/*NO ENCONTRE NINGUNA FUNCIONALIDAD PARA EL FIND() AUN.
- 
-*/
-
+/*let tituloCotizador = document.getElementById("CotizadorDeSeguros")
+console.log(tituloCotizador)*/
 
 /*let respuesta = alert ("Los datos ingresados son:" + "\n" + brand +"\n" + year + "\n" + type)*/
+/*`` */

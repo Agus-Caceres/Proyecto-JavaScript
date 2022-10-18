@@ -22,7 +22,7 @@
           <div class="col col-md-8 mr-md-auto ml-md-auto" >
             <div id="contenido">
                   <header>
-                     <h1 class="text-center">Cotizá tu seguro de Auto</h1>
+                     <h1 id="CotizadorDeSeguros" class="text-center">Cotizá tu seguro de Auto</h1>
                   </header>
                   <div class="row-contenido-formulario">
                       <div class="col col-md-12 mr-md-auto ml-md-auto">
@@ -30,20 +30,20 @@
 
                           <div class="form-group">
                             <label for="anio">Nombre y Apellido:</label>
-                            <input class="form-control" id="anio"></input>
+                            <input class="form-control" id="name"></input>
                         </div>
                         <div class="form-group">
                             <label for="anio">DNI:</label>
-                            <input class="form-control" id="anio"></input>
+                            <input class="form-control" id="dni"></input>
                         </div>
                         <div class="form-group">
                             <label for="anio">Fecha de Nacimiento:</label>
-                            <input class="form-control" id="anio"></input>
+                            <input class="form-control" id="bday"></input>
                         </div>
 
                           <div class="form-group">
                              <label for="marca">Marca:</label>
-                             <select class="form-control" id="marca">
+                             <select class="form-control" id="brand">
                                <option value="">- Seleccionar -</option>
                                <option value="1">Americano</option>
                               <option value="2">Asiatico</option>
@@ -80,18 +80,29 @@
                                             </div>
                                           </div>
                                     </fieldset>
+
+                                    
       
                                 <div id="cargando">
                                     <img src="img/spinner.gif">
                                 </div>
                                 <div id="resultado"></div>
                                 <div class="form-group">
-                                        <button type="submit" class="btn btn-raised btn-primary">Cotizar
+                                        <button type="submit" id="botonCotizar" class="btn btn-raised btn-primary">Cotizar
                                         </button>
                                 </div>
+                                <p id="costoDelSeguro"></p> 
+
                         </form> 
                       </div>
                 </div>
+
+                  <div id="cotizarNuevoSeguro">
+                    <p></p>
+                  </div>
+
+                  <p id="gracias"></p>
+
             </div> <!--#contenido-->
           </div>
         </div>

@@ -3,6 +3,7 @@ background-image: url(../images/velocimetro.jpg);
 background-repeat: no-repeat;
 background-size: cover;
 }
+
 .btn.btn-raised.btn-primary {
     background-color: #00838F!important;
     font-size: 20px;
@@ -11,6 +12,18 @@ background-size: cover;
     padding: 15px;
     text-align: center;
 }
+
+.estilosColor{
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background-color: aquamarine!important;
+}
+    
+
+
 header {
     background-color:#26C6DA;
     padding: 20px;
@@ -118,4 +131,8 @@ header{
     padding: 10px;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.estilosColor{
+    background-color: aquamarine;
 }
