@@ -109,6 +109,7 @@ function mostrarPorConsola(nombre){
 }
 
 
+
 /*const clientNames = datosPersonales.filter((cliente) => cliente.nombre.includes("A"))
 console.log(clientNames)*/
 
@@ -117,43 +118,59 @@ function precioSegunMarca(base, marca){
     precioParcial = multiplicacion(base, marca)
 }
 
+let brand = document.getElementById("brand");
+   
+    brand.innerHTML = `
+        <option id="selectBrand" value="">- Seleccionar -</option>
+        <option id="selectBrand" value="">${marcaToyota.brands}</option>
+        <option id="selectBrand" value="">${marcaVolkswagen.brands}</option>
+        <option id="selectBrand" value="">${marcaFord.brands}</option>
+        <option id="selectBrand" value="">${marcaChevrolet.brands}</option>
+        <option id="selectBrand" value="">${marcaRenault.brands}</option>
+        <option id="selectBrand" value="">${marcaAudi.brands}</option>          
+        `
+    
+    brand.addEventListener('change', seleccioneMarca)
+    
+    //()=>{brand = opcionesASeleccionarMarca.value}
+
 function seleccioneMarca (){
-    let brand = prompt ("Indique la marca de su auto:")
-            if(brand.toUpperCase() == "TOYOTA"){
+    //let brand = prompt ("Indique la marca de su auto:")
+            if(brand == marcaToyota.brands){
                 precioSegunMarca(seguroBase, brandPrice[0]) /*REEMPLAZO DE: "marcaToyota.costoBase" - PARA REFLEJAR EL AUMENTO DE COSTO CON EL MAP(*/
                 }
 
-            else if(brand.toUpperCase() ==  "VOLKSWAGEN"){
+            else if(brand == marcaVolkswagen.brands){
                 precioSegunMarca(seguroBase, marcaVolkswagen.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.volkswagen)*/
                 }
 
-             else if(brand.toUpperCase() == "FORD"){
+             else if(brand == marcaFord.brands){
                 precioSegunMarca(seguroBase, marcaFord.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.ford)*/
                 }
 
-            else if(brand.toUpperCase() == "CHEVROLET"){
+            else if(brand == marcaChevrolet.brands){
                 precioSegunMarca(seguroBase, marcaChevrolet.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.chevrolet)*/
                 /*precioParcial = multiplicacion(seguroBase, chevrolet)*/
                 }
 
-            else if(brand.toUpperCase() == "RENAULT"){
+            else if(brand == marcaRenault.brands){
                 precioSegunMarca(seguroBase, marcaRenault.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.renault)*/
                 }
 
-            else if(brand.toUpperCase() == "AUDI"){
+            else if(brand == marcaAudi.brands){
                 precioSegunMarca(seguroBase, marcaAudi.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.audi)*/
                 }
 
             else {
                 alert("Indique una marca valida")
-               
+              
             }}
-            seleccioneMarca()
+            //seleccioneMarca()
           
 
                 
@@ -277,29 +294,7 @@ gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
 
 
 
-/*let continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2-Salir ")
-
-while(continuar == 1){
-        seleccioneMarca()
-        precioPorYear()
-        precioPorTipo()
-        costoTotal()
-        continuar = prompt ("Desea cotizar otro seguro? \n 1- Seguir Cotizando \n 2- Salir ")
-}*/
 
 
-
-
-
-
-
-    
-/*let tituloCotizador = document.getElementById("CotizadorDeSeguros")
-console.log(tituloCotizador)*/
-
-/*let respuesta = alert ("Los datos ingresados son:" + "\n" + brand +"\n" + year + "\n" + type)*/
-/*`` */
-
-//INTERACCION DEL USUARIO CON EL FORMULARO
 
 
