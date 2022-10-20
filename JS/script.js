@@ -119,7 +119,6 @@ function precioSegunMarca(base, marca){
 }
 
 let brand = document.getElementById("brand");
-   
     brand.innerHTML = `
         <option id="selectBrand" value="">- Seleccionar -</option>
         <option id="selectBrand" value="Toyota">${marcaToyota.brands}</option>
@@ -129,7 +128,7 @@ let brand = document.getElementById("brand");
         <option id="selectBrand" value="Renault">${marcaRenault.brands}</option>
         <option id="selectBrand" value="Audi">${marcaAudi.brands}</option>          
         `
-    let marcaSeleccionada = brand.options[brand.selectedIndex].value;
+    
     brand.addEventListener('change', seleccioneMarca)
     
     //()=>{brand = opcionesASeleccionarMarca.value}
@@ -177,15 +176,16 @@ function seleccioneMarca (){
 /*CALCULO DE PRECIO DE ACUERDO AL AÑO DEL AUTO */
 let precioParcial2
 
+let year = document.getElementById("anio")
+year.addEventListener('change', precioPorYear)
+
+
 function precioPorYear(){
-let anioAuto = document.getElementById("anio")
-let year = " "
-anioAuto.addEventListener('change', ()=>{year = anioAuto.value})
 //let year = prompt ("Indique el año de su auto:")
 const añoActual = 2022
 
-if(year!=""){
-let diferencia = añoActual - year
+if(year.value != " "){
+let diferencia = añoActual - year.value
 let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100 /*CUANTO ES LO QUE SE AUMENTA (CALCULANDO EL 3% DE LA DIFERENCIA EN RELACION AL PRECIO PARCIAL)*/
 
 precioParcial2 = precioParcial + calculoDiferenciaPorAño
@@ -195,7 +195,8 @@ else{
 
 }
 }
-precioPorYear()
+
+
 
 /*alert ("Su precio parcial es:" + " " + "$" + precioParcial)*/
 
@@ -204,6 +205,7 @@ Responsabilidad Civil: Aumenta un 30%
 Terceros completos aumenta un 50%
 Todo Riesgo: Aumenta un 62%
 */
+
 let precioTotal
 
 /*OBJETO DE LOS TIPOS DE SEGUROS*/
