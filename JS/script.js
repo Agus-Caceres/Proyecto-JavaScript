@@ -122,46 +122,46 @@ let brand = document.getElementById("brand");
    
     brand.innerHTML = `
         <option id="selectBrand" value="">- Seleccionar -</option>
-        <option id="selectBrand" value="">${marcaToyota.brands}</option>
-        <option id="selectBrand" value="">${marcaVolkswagen.brands}</option>
-        <option id="selectBrand" value="">${marcaFord.brands}</option>
-        <option id="selectBrand" value="">${marcaChevrolet.brands}</option>
-        <option id="selectBrand" value="">${marcaRenault.brands}</option>
-        <option id="selectBrand" value="">${marcaAudi.brands}</option>          
+        <option id="selectBrand" value="Toyota">${marcaToyota.brands}</option>
+        <option id="selectBrand" value="Volkswagen">${marcaVolkswagen.brands}</option>
+        <option id="selectBrand" value="Ford">${marcaFord.brands}</option>
+        <option id="selectBrand" value="Chevrolet">${marcaChevrolet.brands}</option>
+        <option id="selectBrand" value="Renault">${marcaRenault.brands}</option>
+        <option id="selectBrand" value="Audi">${marcaAudi.brands}</option>          
         `
-    
+    let marcaSeleccionada = brand.options[brand.selectedIndex].value;
     brand.addEventListener('change', seleccioneMarca)
     
     //()=>{brand = opcionesASeleccionarMarca.value}
 
 function seleccioneMarca (){
     //let brand = prompt ("Indique la marca de su auto:")
-            if(brand == marcaToyota.brands){
+            if(brand.value == marcaToyota.brands){
                 precioSegunMarca(seguroBase, brandPrice[0]) /*REEMPLAZO DE: "marcaToyota.costoBase" - PARA REFLEJAR EL AUMENTO DE COSTO CON EL MAP(*/
                 }
 
-            else if(brand == marcaVolkswagen.brands){
+            else if(brand.value == marcaVolkswagen.brands){
                 precioSegunMarca(seguroBase, marcaVolkswagen.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.volkswagen)*/
                 }
 
-             else if(brand == marcaFord.brands){
+             else if(brand.value == marcaFord.brands){
                 precioSegunMarca(seguroBase, marcaFord.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.ford)*/
                 }
 
-            else if(brand == marcaChevrolet.brands){
+            else if(brand.value == marcaChevrolet.brands){
                 precioSegunMarca(seguroBase, marcaChevrolet.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.chevrolet)*/
                 /*precioParcial = multiplicacion(seguroBase, chevrolet)*/
                 }
 
-            else if(brand == marcaRenault.brands){
+            else if(brand.value == marcaRenault.brands){
                 precioSegunMarca(seguroBase, marcaRenault.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.renault)*/
                 }
 
-            else if(brand == marcaAudi.brands){
+            else if(brand.v == marcaAudi.brands){
                 precioSegunMarca(seguroBase, marcaAudi.costoBase)
                 /*precioParcial = multiplicacion(seguroBase, marcasDeAuto.audi)*/
                 }
@@ -178,7 +178,10 @@ function seleccioneMarca (){
 let precioParcial2
 
 function precioPorYear(){
-let year = prompt ("Indique el año de su auto:")
+let anioAuto = document.getElementById("anio")
+let year = " "
+anioAuto.addEventListener('change', ()=>{year = anioAuto.value})
+//let year = prompt ("Indique el año de su auto:")
 const añoActual = 2022
 
 if(year!=""){
