@@ -220,9 +220,9 @@ function Type(tipo, costoPorTipo, _nombre){
     this._nombre = _nombre
 }
 
-let respCivil = new Type("1", parseInt(0.3), "1- Responsabilidad Civil")
-let tercerosCompletos = new Type("2", parseInt(0.5), "2- Terceros Completos")
-let todoRiesgo = new Type("3", parseInt(0.6), "3- Todo Riesgo")
+let respCivil = new Type("1", 0.3, "1. Responsabilidad Civil")
+let tercerosCompletos = new Type("2", 0.5, "2. Terceros Completos")
+let todoRiesgo = new Type("3", 0.6, "3. Todo Riesgo")
 
 const productosSeguro = [respCivil, tercerosCompletos, todoRiesgo] 
 
@@ -239,32 +239,45 @@ console.log(listaNombreProducto)
     todoRiesgo: 0.6
 }*/
 
-let precioType = 0
-/*\n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo*/
+let precioType = "0"
+
 function precioPorTipo(){
     let type = prompt ("Indique el seguro que desea:\n" +  listaNombreProducto.join("\n"))
-    switch(type){
+    if (type == "1"){
+        precioType = precioParcial2 + (precioParcial2 * respCivil.ostoPorTipo);
+    }
+    else if (type == "2"){
+        precioType =  precioParcial2 + (precioParcial2 * tercerosCompletos.costoPorTipo);
+    }
+    else if (type == "3"){
+        precioType =  precioParcial2 + (precioParcial2 * todoRiesgo.costoPorTipo);
+    }
+    else{
+        alert("Ingrese un tipo de seguro válido") 
+    }
+   /*switch(type){
         case "1":
             if (type == "1"){
-                precioType = parseInt(precioParcial2 + (precioParcial2 * respCivil.ostoPorTipo));
+                precioType = Number.parseInt(precioParcial2 + (precioParcial2 * respCivil.ostoPorTipo));
             }
             break;
         case "2":
             if (type == "2"){
-                precioType =  parseInt(precioParcial2 + (precioParcial2 * tercerosCompletos.costoPorTipo));
+                precioType =  Number.parseInt(precioParcial2 + (precioParcial2 * tercerosCompletos.costoPorTipo));
             }
             break;
         case "3":
             if (type == "3"){
-                precioType = parseInt(precioParcial2 + (precioParcial2 * todoRiesgo.costoPorTipo));
+                precioType = Number.parseInt(precioParcial2 + (precioParcial2 * todoRiesgo.costoPorTipo));
             }
             break;
         default:
             alert("Ingrese un tipo de seguro válido")   
-    }
+    }*/
     console.log(Number.isNaN(precioType))
     console.log(typeof(precioType))
     console.log(precioType)
+    console.log(Number.isFinite(precioType))
 }
 precioPorTipo()
 
@@ -281,7 +294,7 @@ boton.addEventListener("click", costoTotal)
 
 
 function costoTotal (){
-precioTotal = Math.round(precioType + precioParcial2)
+precioTotal = Math.round(precioType + precioParcial2 +precioParcial)
 /*alert("El costo total es:" + " " + "$" + precioTotal)*/
 document.getElementById("costoDelSeguro")
 costoDelSeguro.innerText = "El costo del seguro es:" + " " + "$" + precioTotal
