@@ -133,9 +133,10 @@ let brand = document.getElementById("brand");
     
     //()=>{brand = opcionesASeleccionarMarca.value}
 
+    
 function seleccioneMarca (){
     //let brand = prompt ("Indique la marca de su auto:")
-            if(brand.value == marcaToyota.brands){
+            if(brand.value == "Toyota"){
                 precioSegunMarca(seguroBase, brandPrice[0]) /*REEMPLAZO DE: "marcaToyota.costoBase" - PARA REFLEJAR EL AUMENTO DE COSTO CON EL MAP(*/
                 }
 
@@ -167,8 +168,9 @@ function seleccioneMarca (){
 
             else {
                 alert("Indique una marca valida")
-              
-            }}
+                
+            }         console.log(precioParcial)}
+   
             //seleccioneMarca()
           
 
@@ -179,12 +181,11 @@ let precioParcial2
 let year = document.getElementById("anio")
 year.addEventListener('change', precioPorYear)
 
-
 function precioPorYear(){
 //let year = prompt ("Indique el año de su auto:")
 const añoActual = 2022
 
-if(year.value != " "){
+if(year.value != (" ")){
 let diferencia = añoActual - year.value
 let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100 /*CUANTO ES LO QUE SE AUMENTA (CALCULANDO EL 3% DE LA DIFERENCIA EN RELACION AL PRECIO PARCIAL)*/
 
@@ -194,7 +195,9 @@ else{
     alert("Indique un año válido")
 
 }
+console.log(precioParcial2)
 }
+
 
 
 
@@ -206,7 +209,7 @@ Terceros completos aumenta un 50%
 Todo Riesgo: Aumenta un 62%
 */
 
-let precioTotal
+let precioTotal = 0
 
 /*OBJETO DE LOS TIPOS DE SEGUROS*/
 
@@ -217,9 +220,9 @@ function Type(tipo, costoPorTipo, _nombre){
     this._nombre = _nombre
 }
 
-let respCivil = new Type(1, 0.3, "1- Responsabilidad Civil")
-let tercerosCompletos = new Type(2, 0.5, "2- Terceros Completos")
-let todoRiesgo = new Type(3, 0.6, "3- Todo Riesgo")
+let respCivil = new Type("1", parseInt(0.3), "1- Responsabilidad Civil")
+let tercerosCompletos = new Type("2", parseInt(0.5), "2- Terceros Completos")
+let todoRiesgo = new Type("3", parseInt(0.6), "3- Todo Riesgo")
 
 const productosSeguro = [respCivil, tercerosCompletos, todoRiesgo] 
 
@@ -236,31 +239,33 @@ console.log(listaNombreProducto)
     todoRiesgo: 0.6
 }*/
 
+let precioType = 0
 /*\n 1- Resposabilidad Civil\n 2- Terceros Completos\n 3- Todo Riesgo*/
 function precioPorTipo(){
     let type = prompt ("Indique el seguro que desea:\n" +  listaNombreProducto.join("\n"))
     switch(type){
         case "1":
-            if (type == respCivil.tipo){
-             precioType = precioParcial2 * respCivil.costoPorTipo;
+            if (type == "1"){
+                precioType = parseInt(precioParcial2 + (precioParcial2 * respCivil.ostoPorTipo));
             }
             break;
         case "2":
-            if (type == tercerosCompletos.tipo){
-             precioType =  precioParcial2 * tercerosCompletos.costoPorTipo;
+            if (type == "2"){
+                precioType =  parseInt(precioParcial2 + (precioParcial2 * tercerosCompletos.costoPorTipo));
             }
             break;
         case "3":
-            if (type == todoRiesgo.tipo){
-             precioType = precioParcial2 * todoRiesgo.costoPorTipo;
+            if (type == "3"){
+                precioType = parseInt(precioParcial2 + (precioParcial2 * todoRiesgo.costoPorTipo));
             }
             break;
         default:
-            alert("Ingrese un tipo de seguro válido")
-        
+            alert("Ingrese un tipo de seguro válido")   
     }
+    console.log(Number.isNaN(precioType))
+    console.log(typeof(precioType))
+    console.log(precioType)
 }
-
 precioPorTipo()
 
 /*CALCULO DEL COSTO TOTAL DEL SEGURO*/
@@ -291,6 +296,7 @@ costoDelSeguro.innerHTML = `
 
 let gracias = document.getElementById("gracias")
 gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
+console.log(precioTotal)
 }
 
 
