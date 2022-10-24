@@ -26,7 +26,7 @@
                   </header>
                   <div class="row-contenido-formulario">
                       <div class="col col-md-12 mr-md-auto ml-md-auto">
-                        <form action="#" id="cotizar-seguro">
+                        <form id="formulario" action="#" id="cotizar-seguro">
 
                           <div class="form-group">
                             <label for="anio">Nombre y Apellido:</label>
@@ -57,32 +57,45 @@
                                               <label for="anio">Año:</label>
                                               <input class="form-control" id="anio"></input>
                                       </div>
-                                      <fieldset class="form-group">
+                                      <div class="form-group">
+                                        <label for="marca">Tipo de Seguro:</label>
+                                        <select class="form-control" id="typeS">
+                                          <!--<option id="selectBrand" value="">- Seleccionar -</option>
+                                          <option id="selectBrand" value="">Toyota</option>
+                                          <option id="selectBrand" value="">Volkswagen</option>
+                                          <option id="selectBrand" value="">Ford</option>
+                                          <option id="selectBrand" value="">Chevrolet</option>
+                                          <option id="selectBrand" value="">Renault</option>
+                                          <option id="selectBrand" value="">Audi</option>  -->                      
+                                       </select>
+                                    </div>
+                                       <!--<fieldset class="form-group">
                                           <div class="row">
-                                               <legend class="col-form-legend col-12">Tipo Seguro</legend>
+                                              <legend class="col-form-legend col-12">Tipo Seguro</legend>
       
-                                            <div class="col12">
-                                                <div class="form-check">
-                                                  <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="tipo" value="basico" checked>
+                                            <div  class="col12">
+                                                <p>
+                                                  <label  >
+                                                    <input id="clase"  type="radio" name="tipo" value="Responsabilidad Civil" checked>
                                                     Responsabilidad Civil
                                                   </label>
-                                              </div>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="tipo" value="completo">
+                                                </p>
+                                            
+                                                <p>
+                                                  <label >
+                                                    <input id="clase"  type="radio" name="tipo" value="Terceros Completos">
                                                     Terceros Completos
                                                   </label>
-                                              </div>
-                                              <div class="form-check">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="tipo" value="completo">
+                                                </p>
+                                                <p>
+                                                <label >
+                                                  <input id="clase"  type="radio" name="tipo" value="Todo Riesgo">
                                                   Todo Riesgo
                                                 </label>
-                                            </div>
+                                              </p>
                                             </div>
                                           </div>
-                                    </fieldset>
+                                    </fieldset>-->
 
                                     
       
