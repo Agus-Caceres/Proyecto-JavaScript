@@ -188,15 +188,15 @@ console.log(añoActual)
 if(year.value != (" ")){
 let diferencia = añoActual - year.value
 let calculoDiferenciaPorAño = ((diferencia * precioParcial) * 3 )/ 100 /*CUANTO ES LO QUE SE AUMENTA (CALCULANDO EL 3% DE LA DIFERENCIA EN RELACION AL PRECIO PARCIAL)*/
-
 return precioParcial2 = precioParcial + calculoDiferenciaPorAño
 }
+
 else{
     alert("Indique un año válido")
 
 }
 console.log(precioParcial2)
-}
+} 
 
 
 
@@ -301,18 +301,73 @@ precioTotal = Math.round(precioType + precioParcial2 + precioParcial)
 document.getElementById("costoDelSeguro")
 costoDelSeguro.innerText = "El costo del seguro es:" + " " + "$" + precioTotal
 evento.preventDefault()
+
+  const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Cotización Exitosa'
+})
+
 costoDelSeguro.innerHTML = `
 <p id="resumenDatos">Datos Ingresados:</p>
 <p>Nombre: ${nombre}</p>
 <p>DNI: ${dni}</p>
 <p>Año de Nacimiento: ${fechaNac}</p>
+<p>Marca: ${brand.value}</p>
+<p>Año del Auto:  ${year.value}</p>
+<p>Tipo de Seguro: ${type.value}</p>
 <br>
 <p id="costoSeguro">El costo total es: $ ${precioTotal}</p>`;
 
 let gracias = document.getElementById("gracias")
 gracias.innerText = "Gracias" + " " + nombre + " " + "por tu visita!"
 console.log(precioTotal)
+
+/*BOTON PARA EMITIR EL SEGURO */
+let emitirSeguro = document.getElementById("emitirSeguro")
+emitirSeguro.innerHTML= `<button id="botonEmitir" type="submit" class="btn btn-raised btn-primary" >Emitir Seguro</button>`
+emitirSeguro.addEventListener("click", contactoEmitir)
+
+function contactoEmitir(){
+    
+    Swal.fire({
+        title: '<strong>Deseas emitir tu seguro?</strong>',
+        icon: 'info',
+        html:
+          'Contactate con nosotros, ' +
+          '<a href="https://walink.co/8f0ec4">escribinos</a> ' +
+          'y te responderemos a la brevedad con la informacion que necesitas',
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> OK!',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        
+      })
+       
 }
+}
+
+anime({
+    targets: '#emitirSeguro',
+    left: '240px',
+    backgroundColor: '#FFF',
+    borderRadius: ['0%', '50%'],
+    easing: 'easeInOutQuad'
+  });
+
 
 
 

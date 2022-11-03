@@ -4,7 +4,7 @@ body {
   background-size: cover;
 }
 
-.btn.btn-raised.btn-primary {
+#botonCotizar {
   background-color: #00838F !important;
   font-size: 20px;
   font-weight: bold;
@@ -12,6 +12,20 @@ body {
   padding: 15px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+#botonEmitir {
+  background-color: #35682D;
+  color: white;
+  border-color: #35682D;
+  font-size: 20px;
+  font-weight: bold;
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 24%;
 }
 
 #costoDelSeguro {
