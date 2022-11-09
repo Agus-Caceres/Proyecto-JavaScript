@@ -37,6 +37,10 @@ body {
   margin-bottom: 30px;
 }
 
+#contenido {
+  height: 2000px;
+}
+
 #costoDelSeguro {
   margin-bottom: 5%;
   margin: 20px;

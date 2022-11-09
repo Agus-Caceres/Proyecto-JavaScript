@@ -366,32 +366,36 @@ function contactoEmitir(){
 } 
 }
 
-let emitirSeguro = document.getElementById("botonCompanies")
-emitirSeguro.addEventListener("click", dataJson)
+//let emitirSeguro = document.getElementById("botonCompanies")
+//emitirSeguro.addEventListener("click", dataJson)
 
 
-function dataJson(){
+
+//function dataJson(){
     fetch('data.json')
     .then((response) => response.json())
-    .then((data) => mostrarCompanies(data))
+    .then((data) => 
+    data.forEach((company) => {
+        companiesJson.innerHTML =` 
+        <table class="table">
+        <thead>
+<tr>
+  <th scope="col">Compañia:</th>
+  <th scope="col">Descripción</th>
+  <th scope="col">Link</th>
+</tr>
+</thead>
+<tbody id="jsonCompanies">
+<tr>
+<td>${company.company}</td>
+<td>${company.descripcion}</td>
+<td>Link</td>
+</tr>
+</tbody>
+</table>`
 
-    function mostrarCompanies(data) {
-        for (let valor of data){
-          companies.innerHTML = ` <thead>
-          <tr>
-            <th scope="col">Compañia:</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Link</th>
-          </tr>
-        </thead>
-        <tbody id="jsonCompanies">
-        <tr>
-        <td>${valor.company}</td>
-        <td>${valor.descripcion}</td>
-        <td>Link</td>
-      </tr>
-        </tbody>`
-        }}}
+        }))
+    //}
 
 
 
@@ -416,7 +420,7 @@ function dataJson(){
           </tbody>`
         }
         )*/
-    }
+    
     
 
 
