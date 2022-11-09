@@ -17,6 +17,8 @@
 </head>
 <body>
    
+  <div id="companies"></div>
+
     <div class="container">
         <div class="row">
           <div class="col col-md-8 mr-md-auto ml-md-auto" >
@@ -26,19 +28,19 @@
                   </header>
                   <div class="row-contenido-formulario">
                       <div class="col col-md-12 mr-md-auto ml-md-auto">
-                        <form id="formulario" action="#" id="cotizar-seguro">
+                        <form id="formulario" action="#" id="cotizar-seguro" >
 
                           <div class="form-group">
                             <label for="anio">Nombre y Apellido:</label>
-                            <input class="form-control" id="name"></input>
+                            <input type="text" class="form-control" id="name" required>
                         </div>
                         <div class="form-group">
                             <label for="anio">DNI:</label>
-                            <input class="form-control" id="dni"></input>
+                            <input class="form-control" id="dni" required>
                         </div>
                         <div class="form-group">
                             <label for="anio">Año de Nacimiento:</label>
-                            <input class="form-control" id="bday"></input>
+                            <input class="form-control" id="bday" required>
                         </div>
 
                           <div class="form-group">
@@ -55,7 +57,7 @@
                          </div>
                                       <div class="form-group">
                                               <label for="anio">Año:</label>
-                                              <input class="form-control" id="anio"></input>
+                                              <input class="form-control" id="anio" required>
                                       </div>
                                       <div class="form-group">
                                         <label for="marca">Tipo de Seguro:</label>
@@ -123,6 +125,17 @@
 
                   <p id="gracias"></p>
 
+                  <div class="container">
+                    <div class="section">
+                      <button id="botonCompanies" class="button">Compañias con las que trabajamos</button>
+                    
+                      <table id="companies" class="table">
+                       
+                        </table>
+
+                    </div>
+                  </div>
+
             </div> <!--#contenido-->
           </div>
         </div>
@@ -133,8 +146,9 @@
     <!--Bootstrap JS-->
     <script src="js-bs/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    
+  
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="data.json"></script>
     <script>"https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"</script> 
     
     <script src="JS/script.js"></script> 

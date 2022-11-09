@@ -1,0 +1,35 @@
+ [
+    {
+        "type": "1",
+        "company": "ZURICH",
+        "descripcion": "Seguro de auto"
+    },
+
+    {
+        "type": "2",
+        "company": "SURA",
+        "descripcion": "Seguro de auto"
+    },
+
+    {
+        "type": "3",
+        "company": "MERCANTIL ANDINA",
+        "descripcion": "Seguro de auto"
+    },
+    {
+        "type": "4",
+        "company": "FEDERACION PATRONAL",
+        "descripcion": "Seguro de auto"
+    },
+    {
+        "type": "5",
+        "company": "HDI",
+        "descripcion": "Seguro de auto"
+    },
+    {
+        "type": "6",
+        "company": "RIO URUGUAY",
+        "descripcion": "Seguro de auto"
+    }
+
+]
