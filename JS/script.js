@@ -250,7 +250,7 @@ let precioType = 0
 function precioPorTipo(){
    // let type = prompt ("Indique el seguro que desea:\n" +  listaNombreProducto.join("\n"))
    
-    if (type.value == data[0]._nombre){
+    if (type.value == respCivil._nombre){
         return precioParcial2 = precioParcial2 + (precioParcial2 * respCivil.costoPorTipo);
     }
     else if (type.value == tercerosCompletos._nombre){
@@ -265,28 +265,6 @@ function precioPorTipo(){
     }
    
 
-   
-   /*switch(type){
-        case "1":
-            if (type == "1"){
-                precioType = Number.parseInt(precioParcial2 + (precioParcial2 * respCivil.ostoPorTipo));
-            }
-            break;
-        case "2":
-            if (type == "2"){
-                precioType =  Number.parseInt(precioParcial2 + (precioParcial2 * tercerosCompletos.costoPorTipo));
-            }
-            break;
-        case "3":
-            if (type == "3"){
-                precioType = Number.parseInt(precioParcial2 + (precioParcial2 * todoRiesgo.costoPorTipo));
-            }
-            break;
-        default:
-            alert("Ingrese un tipo de seguro válido")   
-    }*/
-  
-    console.log(precioType)
 }
 
 
@@ -372,30 +350,21 @@ function contactoEmitir(){
 
 
 //function dataJson(){
-    fetch('./data.json')
+    fetch('data.json')
     .then((response) => response.json())
     .then((data) => 
-    data.forEach((company) => {
-        companiesJson.innerHTML =` 
-        <table class="table">
-        <thead>
+    data.forEach((companyList) => {
+        companiesJson.innerHTML +=` 
+           
 <tr>
-  <th scope="col">Compañia:</th>
-  <th scope="col">Descripción</th>
-  <th scope="col">Link</th>
+<td>${companyList.company}</td>
+<td>${companyList.descripcion}</td>
+<td>${companyList.type}</td>
 </tr>
-</thead>
-<tbody id="jsonCompanies">
-<tr>
-<td>${company.company}</td>
-<td>${company.descripcion}</td>
-<td>Link</td>
-</tr>
-</tbody>
-</table>`
+`
 
         }))
-    //}
+   
 
 
 

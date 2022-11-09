@@ -1,33 +1,33 @@
  [
     {
-        "type": "1",
+        "type": "https://www.zurich.com.ar/es-ar/personas",
         "company": "ZURICH",
         "descripcion": "Seguro de auto"
     },
 
     {
-        "type": "2",
+        "type": "https://www.segurossura.com.ar/",
         "company": "SURA",
         "descripcion": "Seguro de auto"
     },
 
     {
-        "type": "3",
+        "type": "https://www.mercantilandina.com.ar/",
         "company": "MERCANTIL ANDINA",
         "descripcion": "Seguro de auto"
     },
     {
-        "type": "4",
+        "type": "https://www.fedpat.com.ar/",
         "company": "FEDERACION PATRONAL",
         "descripcion": "Seguro de auto"
     },
     {
-        "type": "5",
+        "type": "https://hdiseguros.com.ar/",
         "company": "HDI",
         "descripcion": "Seguro de auto"
     },
     {
-        "type": "6",
+        "type": "https://www.riouruguay.com.ar/",
         "company": "RIO URUGUAY",
         "descripcion": "Seguro de auto"
     }
