@@ -372,7 +372,7 @@ function contactoEmitir(){
 
 
 //function dataJson(){
-    fetch('data.json')
+    fetch('./data.json')
     .then((response) => response.json())
     .then((data) => 
     data.forEach((company) => {
