@@ -30,6 +30,8 @@ background-size: cover;
 
 #botonCompanies{
     text-align: center;
+    font-size: 15px;
+    padding: 10px;
     background-color:#00838F;
     color: white;
     font-weight: bold;
@@ -37,10 +39,9 @@ background-size: cover;
     margin-bottom: 30px;
 }
 
-#contenido{
-    height: 2000px;
+#companiesJson{
+    text-align: center;
 }
-
 
 
 #costoDelSeguro{

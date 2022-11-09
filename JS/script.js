@@ -344,18 +344,29 @@ function contactoEmitir(){
 } 
 }
 
-//let emitirSeguro = document.getElementById("botonCompanies")
-//emitirSeguro.addEventListener("click", dataJson)
+let emitirSeguro = document.getElementById("botonCompanies")
+emitirSeguro.addEventListener("click", dataJson)
 
 
+function dataJson(){
+    companiesJson.innerHTML +=` 
+    <thead>
+    <tr>
+      <th scope="col">Compañia</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Link</th>
+    </tr>
+    </thead>
+    <tbody id="jsonCompanies">
+    </tbody>` 
 
-//function dataJson(){
     fetch('data.json')
     .then((response) => response.json())
     .then((data) => 
+
     data.forEach((companyList) => {
         companiesJson.innerHTML +=` 
-           
+         
 <tr>
 <td>${companyList.company}</td>
 <td>${companyList.descripcion}</td>
@@ -363,89 +374,6 @@ function contactoEmitir(){
 </tr>
 `
 
-        }))
+        }))}
    
 
-
-
-
-       /* companies.innerHTML = " "
-        for(let valor of datos {
-            const div = document.createElement('div')
-            div.classList.add('box-container')
-            div.innerHTML =` <thead>
-            <tr>
-              <th scope="col">Compañia:</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Link</th>
-            </tr>
-          </thead>
-          <tbody id="jsonCompanies">
-          <tr>
-          <td>${segurosCompanie.company}</td>
-          <td>${segurosCompanie.descripcion}</td>
-          <td>Link</td>
-        </tr>
-          </tbody>`
-        }
-        )*/
-    
-    
-
-
-
-
-/*function alertCompanies(){
-  
-   /* function cardsCompanies(){
-        data.forEach((data) => {
-        let cardBody = document.createElement('div')
-        cardBody.classList.add('card-body')
-        //TITLE
-        let cardTitle = document.createElement('h5')
-        cardTitle.classList.add('card-title')
-        cardTitle.innerText = data.company
-        //DESCRIPCION
-        let cardDescription = document.createElement('p')
-        cardDescription.classList.add('card-text')
-        cardDescription.innerText = data.descripcion
-        //BOTON
-        let cardButton = document.createElement('button')
-        cardDescription.classList.add('btn', 'btn-primary')
-        cardDescription.innerText = 'Pagina Web'
-        cardButton.setAttribute('mark', data.type)
-        
-        cardBody.append(cardTitle)
-        cardBody.append(cardDescription)
-        cardBody.append(cardButton)
-        
-    })
-    }}*/
-    
-    
-
- /*function render(lista){
-   
-        for(const prod of lista){
-        let cardBody = document.createElement('div')
-        cardBody.classList.add('card-body')
-
-            //TITLE
-        let cardTitle = document.createElement('h5')
-        cardTitle.classList.add('card-title')
-        cardTitle.innerText = `${prod.company}`
-        //DESCRIPCION
-        let cardDescription = document.createElement('p')
-        cardDescription.classList.add('card-text')
-        cardDescription.innerText = `${prod.descripcion}`
-        //BOTON
-        let cardButton = document.createElement('button')
-        cardDescription.classList.add('btn', 'btn-primary')
-        cardDescription.innerText = 'Pagina Web'
-        cardButton.setAttribute('mark', prod.type)
-        
-        cardBody.append(cardTitle)
-        cardBody.append(cardDescription)
-        cardBody.append(cardButton)
-        }
-    }*/
