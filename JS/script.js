@@ -135,7 +135,7 @@ let brand = document.getElementById("brand");
     
     brand.addEventListener('change', seleccioneMarca)
     
-    //()=>{brand = opcionesASeleccionarMarca.value}
+   
 
     
 function seleccioneMarca (){
@@ -271,12 +271,6 @@ function precioPorTipo(){
 /*CALCULO DEL COSTO TOTAL DEL SEGURO*/
 
 let boton = document.getElementById("botonCotizar")
-
-/*boton.addEventListener("onmousemove", estiloBoton)
-function estiloBoton(){
-    boton.style.backgroundColor = "red";
-}*/
-
 boton.addEventListener("click", costoTotal)
 
 
@@ -361,7 +355,7 @@ function dataJson(){
     <tbody id="jsonCompanies">
     </tbody>` 
     emitirSeguro.removeEventListener("click", dataJson)
-    
+
     fetch('data.json')
     .then((response) => response.json())
     .then((data) => 
