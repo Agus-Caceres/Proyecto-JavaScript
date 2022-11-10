@@ -349,6 +349,7 @@ emitirSeguro.addEventListener("click", dataJson)
 
 
 function dataJson(){
+    
     companiesJson.innerHTML +=` 
     <thead>
     <tr>
@@ -359,7 +360,8 @@ function dataJson(){
     </thead>
     <tbody id="jsonCompanies">
     </tbody>` 
-
+    emitirSeguro.removeEventListener("click", dataJson)
+    
     fetch('data.json')
     .then((response) => response.json())
     .then((data) => 
@@ -376,4 +378,5 @@ function dataJson(){
 
         }))}
    
+        
 
